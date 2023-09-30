@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use App\Http\Requests\RegisterFormRequest;
 
 
 class RegisterController extends Controller
@@ -39,12 +40,15 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
-
-
     public function register(Request $request){
-
         if($request->isMethod('post')){
+            $data = $request->all();
+            $validated=$request->validate([
+                'username'=>'required|min:2|max:12',
+                'mail'=>'required|string|email|min:5|max:40',
+                'password'=>'required|alpha_num|min:8|max:20',
+                'password_confirmation'=>'required|alpha_num|min:8|max:20|confirmed'
+            ]);
 
 
             // 入力した値を取得するメソッド
@@ -52,12 +56,6 @@ class RegisterController extends Controller
             $mail = $request->input('mail');
             $password = $request->input('password');
 
-            // $request->validate([
-            //     'username'=>'required|min:2|max:12',
-            //     'mail'=>'required|string|email|min:5|max:40',
-            //     'password'=>'required|alpha_num|min:8|max:20',
-            //     'password_confirmation'=>'required|alpha_num|min:8|max:20|confirmed'
-            // ]);
 
             // 送信後「username」「mail」「password」のデータが格納される
             User::create([
@@ -72,12 +70,6 @@ class RegisterController extends Controller
         }
         return view('auth.register');
     }
-
-    // public function registerView(RegisterForm $request){
-    //     $inputs=$request->all();
-    //     return view('auth.register');
-    // }
-
     public function added(){
         return view('auth.added');
     }
