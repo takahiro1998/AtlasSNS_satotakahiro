@@ -6,7 +6,6 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use App\Http\Requests\RegisterFormRequest;
 
 
 class RegisterController extends Controller
@@ -46,8 +45,8 @@ class RegisterController extends Controller
             $validated=$request->validate([
                 'username'=>'required|min:2|max:12',
                 'mail'=>'required|string|email|min:5|max:40',
-                'password'=>'required|alpha_num|min:8|max:20',
-                'password_confirmation'=>'required|alpha_num|min:8|max:20|confirmed'
+                'password'=>'required|alpha_num|min:8|max:20|confirmed',
+                'password_confirmation'=>'required|alpha_num|min:8|max:20'
             ]);
 
 

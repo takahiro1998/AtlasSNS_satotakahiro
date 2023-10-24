@@ -26,4 +26,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // フォロワー→フォロー
+    public function followUsers(){
+        return $this->belongsToMany('App\User','follows','following_id','followed_id');
+    }
+    // フォロー→フォロワー
+    public function follows(){
+        return $this->belongsToMany('App\User','follows','following_id','followed_id');
+    }
 }

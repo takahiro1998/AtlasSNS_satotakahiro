@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Follow extends Model
 {
     //
+    public function user(){
+        return $this->belongsMany('Providers/Uses');
+    }
 }
