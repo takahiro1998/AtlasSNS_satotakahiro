@@ -8,23 +8,38 @@ body {}
 header {
     padding: 10px;
     background: #186AC9;
+    height: 57px;
 }
 
+h1 {
+    width: 90px;
+    margin: 10px;
+    /* margin-left: 10px;
+    margin-top: 10px; */
+}
 
+#head h1 a {
+    width: 100%;
+}
 
 img {
-    size: 60px 70px;
+    width: 100%;
+    /* size: 60px 70px; */
 }
 
-p {
+.nav-open p {
     color: #f7ecf1;
+}
+
+.icon {
+    width: 40px;
+    margin: 10px;
 }
 
 /* main content */
 #head {
     display: flex;
 }
-
 
 #head {
     align-items: center;
@@ -44,9 +59,16 @@ p {
 
 
 
-.menu-btn .tag {
+/* .menu-btn .tag {
     text-decoration: none;
+} */
+
+.nav-open p {
+    font-weight: bold;
+    margin-top: 20px;
 }
+
+
 
 /* 常時開いたままにしないよう設定 */
 .nav-open ul {
@@ -56,7 +78,7 @@ p {
 .nav-open {
     display: flex;
     position: relative;
-    margin-left: 700px;
+    margin-left: 940px;
     float: right;
     outline: 0;
     border-top: none;
@@ -83,15 +105,17 @@ p {
     content: '>';
     position: absolute;
     display: block;
-    width: 8px;
     height: 8px;
-    right: 40px;
     top: 3%;
     transform: rotate(-90deg);
+    transform: translateY();
 }
 
-.nav-open ul a:hover {
+.nav-open ul li a:hover {
     color: #fff;
+}
+
+.nav-open ul li:hover {
     background-color: #186AC9;
 }
 
@@ -100,40 +124,59 @@ p {
     transform: rotate(90deg);
 }
 
-.tag {
+.nav-open nav {
+    margin-top: 15px;
+    width: 40px;
+}
+
+.nav-open ul {
     position: absolute;
-    top: 75px;
+    top: 67px;
     width: 100%;
     height: 50px;
-    /* padding: 10px 10px 20px; */
-    left: 70px;
-    /* margin-left: 0; */
+    left: 10px;
     border-color: darkblue;
     display: flex;
     background-color: #fff;
     text-align: center;
     flex-flow: column;
-    /* transform: translateY(-30px); */
 }
 
 .nav-open ul li {
-    padding: 20px;
+    width: 140px;
+    padding: 30px 50px 30px 50px;
     border: 1px solid;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     text-align: center;
+    background-color: #fff;
 }
+
+
+
+/* サイドバー */
 
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
 
-
-
-
-
-
 .btn {
+    width: 150px;
+    text-align: center;
+    margin: 10px;
+    padding: .5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #2589d0;
     color: #fff;
+}
 
+.btn a {
+    color: #fff;
+}
+
+/* 投稿フォーム */
+
+.form-group {
+    outline: none;
 }

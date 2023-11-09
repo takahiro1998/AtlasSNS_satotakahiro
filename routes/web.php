@@ -30,15 +30,18 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
+// 表示用
 Route::get('/top','PostsController@index');
-Route::post('/top','PostsController@index');
+// 投稿押したとき
+Route::post('/top','PostsController@postCreate');
+
 
 Route::get('/profile','UsersController@profile');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@search');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','FollowsController@followList');
+Route::get('/follower-list','FollowsController@followerList');
 
 // ログアウト
 Route::get('/logout','Auth\LoginController@logout');

@@ -24,7 +24,7 @@
         <div id = "head">
             <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div class="nav-open">
-                <p>{{ Auth::user()->username }} さん<img src="images/arrow.png"></p>
+                <p>{{ Auth::user()->username }}　さん</p>
                 <nav>
                    <a href="" class="menu-btn"></a>
                    <ul class="tag">
@@ -48,17 +48,20 @@
                 <p>フォロー数</p>
                 <p>{{ Auth::user()->follows()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="follows/followList">フォローリスト</a></p>
+                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>{{ Auth::user()->followUsers()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="follows/followerList">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
+        <div>
+            <p>e</p>
+        </div>
     </footer>
     <script src="{{ asset('js/app.js') }} "></script>
     <script src="{{ asset('js/script.js') }} "></script>

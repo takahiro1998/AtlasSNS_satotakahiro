@@ -27,6 +27,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function user(){
+        return $this->belongsTo('App\Post');
+    }
+
+
+    // belongsToMany('関係するモデル','中間テーブル名','中間テーブル内で対応するカラム','関係モデルで対応するカラム')
+
     // フォロワー→フォロー
     public function followUsers(){
         return $this->belongsToMany('App\User','follows','following_id','followed_id');
