@@ -33,7 +33,7 @@
                     <li><a href="/logout">ログアウト</a></li>
                    </ul>
                 </nav>
-                <div class="icon"><img src="images/icon1.png"></div>
+                <div class="icon"><img src="/images/icon1.png"></div>
             </div>
         </div>
     </header>
@@ -59,9 +59,6 @@
         </div>
     </div>
     <footer>
-        <div>
-            <p>e</p>
-        </div>
     </footer>
     <script src="{{ asset('js/app.js') }} "></script>
     <script src="{{ asset('js/script.js') }} "></script>

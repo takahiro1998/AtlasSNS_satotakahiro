@@ -27,8 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function user(){
-        return $this->belongsTo('App\Post');
+    public function posts(){
+        return $this->hasMany('App\Post');
     }
 
 
@@ -36,10 +36,18 @@ class User extends Authenticatable
 
     // フォロワー→フォロー
     public function followUsers(){
-        return $this->belongsToMany('App\User','follows','following_id','followed_id');
+        return $this->belongsToMany('App\User','follows','followed_id','following_id');
     }
     // フォロー→フォロワー
     public function follows(){
         return $this->belongsToMany('App\User','follows','following_id','followed_id');
+    }
+
+    public function isFollowing(Int $user_id){
+        return (bool) $this->follows()->where("followed_id",$user_id)->first(['follows.id']);
+    }
+
+    public function isFollowed(Int $user_id){
+        return (bool) $this->follows()->where("following_id",$user_id)->first(['follows.id']);
     }
 }

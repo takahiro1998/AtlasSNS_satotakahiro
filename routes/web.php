@@ -35,13 +35,25 @@ Route::get('/top','PostsController@index');
 // 投稿押したとき
 Route::post('/top','PostsController@postCreate');
 
+// 編集更新
+Route::post('/update','PostsController@update');
+// 投稿削除
+Route::get('/post/{id}/delete','PostsController@delete');
 
+// プロフィール編集画面表示
 Route::get('/profile','UsersController@profile');
+// プロフィール編集
+Route::post('/profile/update','UsersController@profileUpdate');
 
 Route::get('/search','UsersController@search');
 
 Route::get('/follow-list','FollowsController@followList');
 Route::get('/follower-list','FollowsController@followerList');
+
+// フォロー機能
+Route::get('/follow/{id}','FollowsController@store');
+// フォロー解除
+Route::get('/unfollow/{id}','FollowsController@unfollow');
 
 // ログアウト
 Route::get('/logout','Auth\LoginController@logout');

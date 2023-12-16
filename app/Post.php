@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $fillable=[
-        'post'
+        'post','user_id'
     ];
     //
-    public function posts(){
-        return $this->hasMany('App\post');
+    // user:posts=1:多のためuserは単数
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 
     // public function destroy(){
