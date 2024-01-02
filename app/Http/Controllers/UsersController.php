@@ -6,15 +6,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\User;
+use App\Post;
+
 
 
 class UsersController extends Controller
 {
     //
-    public function profile(){
-        $users = User::where('id',Auth::user()->id)->get();
+    public function profile($id){
+        // idをもとにUsersテーブルからユーザー情報を取得
+        $users = User::where('id',$id)->get();
+        // idをもとにPostテーブルからユーザーの投稿を取得
+        $posts = Post::where('user_id',$id)->get();
+        // dd($posts);
         // dd($users);
-        return view('users.profile',['users'=>$users]);
+        return view('users.profile',['users'=>$users,'posts'=>$posts]);
     }
 
     public function search(Request $request){
@@ -39,20 +45,29 @@ class UsersController extends Controller
             'images' => 'image',
         ]);
 
-        $user=Auth::user();
+        $id=$request->input('id');
+        $username = $request->input('username');
+        $mail = $request->input('mail');
+        $password = $request->input('password');
+        $bio = $request->input('bio');
+        $images = $request->input('images');
         // 画像をpublic/imagesに保存する
-        dd($request->input('images'));
+        // dd($request->file('images'));
         $file_name=$request->file('images')->getClientOriginalName();
-        $image=$request->file('images')->store('public/images',$file_name);
-        $validator->validate();
-        $user->update([
+        $image=$request->file('images')->storeAs('public/images',$file_name);
+
+        \DB::table('users')
+        ->where('id', $id)
+        ->update([
             'username'=>$request->input('username'),
             'mail'=>$request->input('email'),
             'password'=>bcrypt($request->input('password')),
             'bio'=>$request->input('bio'),
-            'images'=>basename($image)
+            'images'=>basename($image),
         ]);
 
         return redirect('/top');
     }
+
+
 }
