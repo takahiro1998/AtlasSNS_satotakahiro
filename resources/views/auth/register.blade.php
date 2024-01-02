@@ -15,21 +15,27 @@
 </div>
 @endif
 
-{{ Form::label('ユーザー名') }}
+{{ Form::label('username') }}
 {{ Form::text('username',null,['class' => 'input']) }}
 
-{{ Form::label('メールアドレス') }}
+{{ Form::label('mail address') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
 
-{{ Form::label('パスワード') }}
-{{ Form::password('password',null,['class' => 'input']) }}
+<div class="pass">
+  {{ Form::label('password') }}
+  {{ Form::password('password',null,['class' => 'input']) }}
+</div>
 
-{{ Form::label('パスワード確認') }}
-{{ Form::password('password_confirmation',null,['class' => 'input']) }}
+<div class="pass">
+  {{ Form::label('password confirm') }}
+  {{ Form::password('password_confirmation',null,['class' => 'input']) }}
+</div>
 
-{{ Form::submit('登録') }}
+{{ Form::submit('REGISTER',['class'=>'btn btn-danger']) }}
 
-<p><a href="/login">ログイン画面へ戻る</a></p>
+<div class="login-btn">
+  <p><a href="/login">ログイン画面へ戻る</a></p>
+</div>
 
 {!! Form::close() !!}
 

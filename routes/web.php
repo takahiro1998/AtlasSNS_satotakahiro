@@ -20,7 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //ログアウト中のページ
-Route::get('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/register', 'Auth\RegisterController@register');
@@ -30,6 +30,7 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
+Route::group(['middleware'=>['auth']],function(){
 // 表示用
 Route::get('/top','PostsController@index');
 // 投稿押したとき
@@ -41,9 +42,11 @@ Route::post('/update','PostsController@update');
 Route::get('/post/{id}/delete','PostsController@delete');
 
 // プロフィール編集画面表示
-Route::get('/profile','UsersController@profile');
+Route::get('/profile/{id}','UsersController@profile');
 // プロフィール編集
 Route::post('/profile/update','UsersController@profileUpdate');
+
+Route::get('/users/{id}/profile','UsersController@follower_profile');
 
 Route::get('/search','UsersController@search');
 
@@ -58,3 +61,5 @@ Route::get('/unfollow/{id}','FollowsController@unfollow');
 // ログアウト
 Route::get('/logout','Auth\LoginController@logout');
 Route::post('/logout','Auth\LoginController@logout');
+
+});

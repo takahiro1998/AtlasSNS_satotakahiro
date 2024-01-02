@@ -2,30 +2,31 @@
 
 @section('content')
 
-<div class="container">
-  <form action="/search">
-    @csrf
-    <input type="text" name="keyword">
-    <input type="submit">
-  </form>
-  <h2>検索ワード：{{ $keyword }}</h2>
+<div class="container1">
+    <form action="/search">
+      @csrf
+      <input type="text" name="keyword" placeholder="ユーザー名">
+      <input type="image" src="images/search.png" class="search-button">
+    </form>
+    <h2>検索ワード：{{ $keyword }}</h2>
 </div>
-<div class="">
-  @foreach($post as $post)
-  <tr>
-    <td class=""><img src="images/{{ $post->images }}" alt="アイコン"></td>
-    <td>{{ $post->username }}</td>
-    @if(auth()->user()->isFollowing($post->id))
-    <td>
-      <button type="button"><a href="/unfollow/{{ $post->id }}">フォロー解除</a></button>
-    </td>
-    @else
-    <td>
-      <button type="button"><a href="/follow/{{ $post->id }}">フォローする</a></button>
-    </td>
-    @endif
-  </tr>
-  @endforeach
+@foreach($post as $post)
+<div class="search-user">
+  <div class="search-icon">
+    <img src="images/{{ $post->images }}" alt="アイコン">
+  </div>
+  <div class="search-username">{{ $post->username }}</div>
+  @if(auth()->user()->isFollowing($post->id))
+  <div class="search-button1">
+    <button type="button"><a href="/unfollow/{{ $post->id }}">フォロー解除</a></button>
+  </div>
+  @else
+  <div class="search-button2">
+    <button type="button"><a href="/follow/{{ $post->id }}">フォローする</a></button>
+  </div>
+  @endif
 </div>
+@endforeach
+
 
 @endsection
