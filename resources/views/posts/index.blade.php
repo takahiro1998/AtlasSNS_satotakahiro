@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container1">
   <!-- /topに値を送る -->
   <div class="top-icon">
     @if(Auth::user()->images==null)
