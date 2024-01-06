@@ -15,23 +15,23 @@
             </figure>
           </article>
           <div class="profile-information">
-            <div>
+            <div class="profile-information1">
               {{Form::label('name','user name')}}
               {{Form::text('username',  Auth::user()->username)}}
             </div>
-            <div>
+            <div class="profile-information1">
               {{Form::label('mail','mail address')}}
               {{Form::email('email',Auth::user()->mail)}}
             </div>
-            <div>
+            <div class="profile-information1">
               {{Form::label('pass','password')}}
               {{ Form::password('password')}}
             </div>
-            <div>
+            <div class="profile-information1">
               {{Form::label('pass','password confirm')}}
               {{Form::password('password_confirm')}}
             </div>
-            <div>
+            <div class="profile-information1">
               {{Form::label('name','bio')}}
               {{Form::text('bio',Auth::user()->bio)}}
             </div>
@@ -39,7 +39,7 @@
               {{Form::label('icon','icon image',['class'=>'custom-input-label'])}}
               {{Form::file('images',['class'=>'custom-file'])}}
             </div>
-            <div>
+            <div class="update-btn">
               {{ Form::submit('更新',['class'=>'btn btn-danger'])}}
             </div>
           </div>

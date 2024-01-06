@@ -1,10 +1,16 @@
 @extends('layouts.login')
 
 @section('content')
-<!-- <h2>機能を実装していきましょう。</h2> -->
+
 <div class="container">
   <!-- /topに値を送る -->
-  <div class="top-icon"><img src="{{ asset('storage/images/'.Auth::user()->images)}}"></div>
+  <div class="top-icon">
+    @if(Auth::user()->images==null)
+    <img src="images/icon1.png" alt="">
+    @else
+    <img src="{{ asset('storage/images/'.Auth::user()->images)}}">
+    @endif
+  </div>
   {!! Form::open(['url' => '/top']) !!}
   {{ Form::token() }}
   <div class="form-group">
@@ -13,8 +19,8 @@
   <button type="submit" class="post-btn btn"><img src="images/post.png" alt="送信"></button>
   {!! Form::close() !!}
 </div>
+@foreach($list as $list)
 <div class="user-post">
-  @foreach($list as $list)
   <div class="post">
     <article class="icon">
       <figure><img src="{{ asset('storage/images/'.$list->user->images)}}" alt=""></figure>
@@ -37,11 +43,10 @@
       @endif
     </div>
   </div>
-  @endforeach
 </div>
-@endsection
+@endforeach
 <!-- モーダルの中身 -->
-    <div class="modal js-modal">
+<div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
            <form action="/update" method="post">
@@ -52,4 +57,6 @@
            </form>
            <a class="js-modal-close" href="">閉じる</a>
         </div>
-    </div>
+  </div>
+
+@endsection

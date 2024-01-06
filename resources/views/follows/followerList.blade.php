@@ -19,7 +19,7 @@
   @foreach($posts as $post)
   <div class="follow-user">
     <article class="follow-icon">
-      <figure><a href="/profile/{{ $post->user->id }}"><img src="images/{{ $post->user->images }}" alt=""></a></figure>
+      <figure><a href="/profile/{{ $post->user->id }}"><img src="{{ asset('storage/images/'. $post->user->images) }}" alt=""></a></figure>
     </article>
     <div class="follow-post">
       <p class="follow-post1">{{ $post->user->username }}</p>
