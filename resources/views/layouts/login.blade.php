@@ -35,7 +35,7 @@
                    </ul>
                 </nav>
                 <div class="icon">
-                    @if(Auth::user()->images==null)
+                    @if(Auth::user()->images=="icon1.png")
                     <img src="images/icon1.png" alt="">
                     @else
                     <img src="{{ asset('storage/images/'.Auth::user()->images) }}">
@@ -62,7 +62,9 @@
                 </div>
                 <button class="follow-btn"><a href="/follower-list">フォロワーリスト</a></button>
             </div>
-            <p class="search-btn"><a href="/search">ユーザー検索</a></p>
+            <p class="search-btn">
+                <a href="/search">ユーザー検索</a>
+            </p>
         </div>
     </div>
     <footer>

@@ -1,7 +1,8 @@
-
 @extends('layouts.login')
 
 @section('content')
+
+
 @foreach($users as $user)
  @if($user->id==Auth::user()->id)
    <div class="profile">
@@ -91,7 +92,6 @@
     </div>
     @endforeach
    @endif
-
 @endforeach
 
 @endsection

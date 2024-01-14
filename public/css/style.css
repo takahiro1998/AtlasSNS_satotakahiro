@@ -3,14 +3,14 @@
 html {}
 
 body {
-    /* width: 1280px; */
+    width: 1280px;
 }
 
 
 
 /* header */
 header {
-    width: 1500px;
+    width: 100%;
     background: #186AC9;
     height: 70px;
 }
@@ -49,8 +49,8 @@ img {
 
 #row {
     display: flex;
-    width: 1500px;
-    flex-flow: row wrap;
+    width: 100%;
+    /* flex-flow: row wrap; */
 }
 
 #container {
@@ -65,7 +65,7 @@ img {
 /* サイドバー */
 
 #side-bar {
-    flex: 0 0 20%;
+    flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
 
@@ -120,23 +120,27 @@ img {
     text-decoration: none;
 }
 
-.btn {
-    width: 150px;
-    text-align: center;
-    margin: 10px;
-    padding: .5em;
-    border: none;
+.search-button img {
     border-radius: 5px;
 }
 
-.post-btn {
-    width: 55px;
-    margin: 10px;
+.btn {
     padding: .5em;
     border: none;
+    width: 130px;
+}
+
+.post-btn {
+    padding: .5em;
+    margin-left: 50px;
+    display: block;
+    width: 50px;
+    padding-top: 80px;
+}
+
+
+.post-btn img {
     border-radius: 5px;
-    color: #fff;
-    margin-left: 100px;
 }
 
 
@@ -237,8 +241,15 @@ img {
 
 .form-group {
     outline: none;
-    padding: 0;
+    padding-top: 50px;
     width: 70%;
+}
+
+.form-group input {
+    width: 500px;
+    height: 40%;
+    padding: 0;
+    border-radius: 5px;
 }
 
 .btn-success {
@@ -255,14 +266,9 @@ img {
 .container {
     display: flex;
     height: 150px;
-    border-bottom: 5px solid #dcdcdc;
 }
 
-.container1 form {
-    display: flex;
-    width: 100%;
-    padding-top: 50px;
-}
+
 
 .top-icon {
     padding-top: 30px;
@@ -550,6 +556,17 @@ img {
 }
 
 
+.container {
+    display: flex;
+    height: 150px;
+    border-bottom: 5px solid #dcdcdc;
+}
+
+.container form {
+    display: flex;
+    padding-top: 50px;
+    padding-left: 50px;
+}
 
 /* 検索 */
 
@@ -564,12 +581,22 @@ img {
 
 .container1 form {
     display: flex;
-    width: 500px;
-    padding-top: 50px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.search {
     padding-left: 50px;
 }
 
-.container1 form input {
+.text-box {
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+/* .container1 form input {
     width: 300px;
     height: 40px;
     padding: 10px;
@@ -581,16 +608,10 @@ img {
     padding: 0;
     margin-left: 10px;
     border-radius: 5px;
-    /* background-color: #727272; */
-}
-
-.container1 input:last-of-type {
-    width: 50px;
-}
+} */
 
 .container1 input::placeholder {
     color: #aaa;
-    padding-left: 10px;
 }
 
 .container1 h2 {
@@ -599,6 +620,13 @@ img {
     padding-left: 50px;
     width: 500px;
 }
+
+.search-button {
+    display: block;
+    width: 60px;
+    padding-top: 10px;
+}
+
 
 .search-user {
     display: flex;
@@ -616,12 +644,10 @@ img {
     width: 200px;
 }
 
-
 .search-icon {
     width: 35%;
     margin: 10px;
     padding-left: 10px;
-    /* background-color: #727272; */
 }
 
 .search-icon img {

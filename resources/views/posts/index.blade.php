@@ -5,7 +5,7 @@
 <div class="container1">
   <!-- /topに値を送る -->
   <div class="top-icon">
-    @if(Auth::user()->images==null)
+    @if(Auth::user()->images=="icon1.png")
     <img src="images/icon1.png" alt="">
     @else
     <img src="{{ asset('storage/images/'.Auth::user()->images)}}">
@@ -16,7 +16,9 @@
   <div class="form-group">
     {{ Form::input('text','newPost',null,['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください'])}}
   </div>
-  <button type="submit" class="post-btn btn"><img src="images/post.png" alt="送信"></button>
+  <button type="submit" class="post-btn btn">
+    <img src="images/post.png" alt="送信">
+  </button>
   {!! Form::close() !!}
 </div>
 @foreach($list as $list)

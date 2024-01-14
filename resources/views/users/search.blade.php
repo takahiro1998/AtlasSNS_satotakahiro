@@ -3,10 +3,12 @@
 @section('content')
 
 <div class="container1">
-    <form action="/search">
+    <form action="/search" class="search">
       @csrf
-      <input type="text" name="keyword" placeholder="ユーザー名">
-      <input type="image" src="images/search.png" class="search-button">
+      <input type="text" name="keyword" placeholder="ユーザー名" class="text-box">
+      <button type="submit" class="btn search-button">
+        <img src="images/search.png" alt="">
+      </button>
     </form>
     @if(!empty($keyword))
     <h2>検索ワード：{{ $keyword }}</h2>
