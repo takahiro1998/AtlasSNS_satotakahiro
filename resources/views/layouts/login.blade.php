@@ -23,7 +23,7 @@
 <body>
     <header>
         <div id = "head">
-            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+            <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
             <div class="nav-open">
                 <p>{{ Auth::user()->username }}　さん</p>
                 <nav>
@@ -36,7 +36,7 @@
                 </nav>
                 <div class="icon">
                     @if(Auth::user()->images=="icon1.png")
-                    <img src="images/icon1.png" alt="">
+                    <img src="{{ asset('images/icon1.png') }}" alt="">
                     @else
                     <img src="{{ asset('storage/images/'.Auth::user()->images) }}">
                     @endif
