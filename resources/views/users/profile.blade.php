@@ -51,7 +51,13 @@
   @else
     <div class="container1">
       <article class="user-icon">
-        <figure><img src="{{ asset('storage/images/'. $user->images)}}" alt=""></figure>
+        <figure>
+          @if(Auth::user()->images=="icon1.png")
+          <img src="images/icon1.png" alt="">
+          @else
+          <img src="{{ asset('storage/images/'. $user->images)}}" alt="">
+          @endif
+        </figure>
       </article>
       <div class="user-information">
         <div class="user-add">
