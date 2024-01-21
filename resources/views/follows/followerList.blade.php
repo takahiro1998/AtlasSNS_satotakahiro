@@ -10,7 +10,13 @@
     @foreach($followings as $following)
       <ul class="icon">
         <li>
-          <a href="/profile/{{ $following->id }}"><img src="{{ asset('storage/images/'. $following->images) }}"></a>
+          <a href="/profile/{{ $following->id }}">
+            @if(Auth::user()->images=="icon1.png")
+            <img src="{{ asset('images/icon1.png') }}" alt="">
+            @else
+            <img src="{{ asset('storage/images/'. $following->images) }}">
+            @endif
+          </a>
         </li>
       </ul>
     @endforeach
@@ -19,7 +25,15 @@
   @foreach($posts as $post)
   <div class="follow-user">
     <article class="follow-icon">
-      <figure><a href="/profile/{{ $post->user->id }}"><img src="{{ asset('storage/images/'. $post->user->images) }}" alt=""></a></figure>
+      <figure>
+        <a href="/profile/{{ $post->user->id }}">
+          @if(Auth::user()->images=="icon1.png")
+          <img src="{{ asset('images/icon1.png') }}" alt="">
+          @else
+          <img src="{{ asset('storage/images/'. $post->user->images) }}" alt="">
+          @endif
+        </a>
+      </figure>
     </article>
     <div class="follow-post">
       <p class="follow-post1">{{ $post->user->username }}</p>

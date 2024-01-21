@@ -12,7 +12,11 @@
       <div class="information">
           <article class="icon">
             <figure>
+              @if(Auth::user()->images=="icon1.png")
+              <img src="{{ asset('images/icon1.png') }}" alt="">
+              @else
               <img src="{{ asset('storage/images/'.Auth::user()->images) }}">
+              @endif
             </figure>
           </article>
           <div class="profile-information">
@@ -52,7 +56,11 @@
     <div class="container1">
       <article class="user-icon">
         <figure>
+          @if(Auth::user()->images=="icon1.png")
+          <img src="{{ asset('images/icon1.png') }}" alt="">
+          @else
           <img src="{{ asset('storage/images/'. $user->images)}}" alt="">
+          @endif
         </figure>
       </article>
       <div class="user-information">

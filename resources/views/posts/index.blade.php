@@ -54,7 +54,7 @@
            <form action="/update" method="post">
                 <textarea name="upPost" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
-                <input type="submit" value="更新">
+                <input type="image" src="images/edit.png" class="upPost-btn" value="更新">
                 {{ csrf_field() }}
            </form>
            <a class="js-modal-close" href="">閉じる</a>

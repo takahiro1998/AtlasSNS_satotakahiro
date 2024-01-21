@@ -109,3 +109,29 @@ input {
 .login-btn p a {
     font-size: 1.1rem;
 }
+
+/* ユーザー登録完了画面 */
+#clear {}
+
+#clear p {
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+}
+
+.add {
+    font-weight: bold;
+    padding: 30px;
+}
+
+#clear p a {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+#clear .btn-danger {
+    width: 120px;
+    margin-left: 70px;
+    margin-bottom: 35px;
+}

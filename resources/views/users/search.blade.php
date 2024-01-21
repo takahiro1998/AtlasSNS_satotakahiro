@@ -18,7 +18,11 @@
 @if(!($post->username==Auth::user()->username))
 <div class="search-user">
   <div class="search-icon">
+    @if(Auth::user()->images=="icon1.png")
+    <img src="{{ asset('images/icon1.png') }}" alt="">
+    @else
     <img src="images/{{ $post->images }}" alt="アイコン">
+    @endif
   </div>
   <div class="search-username">{{ $post->username }}</div>
   @if(auth()->user()->isFollowing($post->id))
