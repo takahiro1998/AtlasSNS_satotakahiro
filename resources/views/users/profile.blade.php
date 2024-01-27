@@ -33,8 +33,8 @@
               {{ Form::password('password')}}
             </div>
             <div class="profile-information1">
-              {{Form::label('pass','password confirm')}}
-              {{Form::password('password_confirm')}}
+              {{Form::label('pass','password_confirm')}}
+              {{Form::password('password_confirmation')}}
             </div>
             <div class="profile-information1">
               {{Form::label('name','bio')}}
@@ -49,6 +49,15 @@
             </div>
           </div>
       </div>
+      @if ($errors->any())
+<div id="alert">
+  <ol>
+    @foreach ($errors->all() as $error)
+     <li>{{ $error }}</li>
+    @endforeach
+  </ol>
+</div>
+@endif
      {{ Form::token() }}
      {!! Form::close() !!}
     </div>
@@ -90,7 +99,13 @@
     @foreach($posts as $post)
     <div class="follow-user">
       <article class="icon">
-        <figure><img src="{{ asset('storage/images/'. $post->user->images)}}" alt=""></figure>
+        <figure>
+          @if(Auth::user()->images=="icon1.png")
+          <img src="{{ asset('images/icon1.png') }}" alt="">
+          @else
+          <img src="{{ asset('storage/images/'. $post->user->images)}}" alt="">
+          @endif
+        </figure>
       </article>
       <div class="follow-post">
         <p>{{ $post->user->username }}</p>

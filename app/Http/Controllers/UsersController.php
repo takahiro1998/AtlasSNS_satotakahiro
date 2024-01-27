@@ -45,6 +45,7 @@ class UsersController extends Controller
             'images' => 'image',
         ]);
 
+
         $id=$request->input('id');
         $username = $request->input('username');
         $mail = $request->input('mail');
@@ -53,9 +54,18 @@ class UsersController extends Controller
         $images = $request->input('images');
         // 画像をpublic/imagesに保存する
         // dd($request->file('images'));
+        if($request->hasFile('images')){
         $file_name=$request->file('images')->getClientOriginalName();
         $image=$request->file('images')->storeAs('public/images',$file_name);
+        }else{
+            $image=Auth::user()->images;
+        }
 
+        if($validator->fails()){
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }else{
         \DB::table('users')
         ->where('id', $id)
         ->update([
@@ -65,8 +75,9 @@ class UsersController extends Controller
             'bio'=>$request->input('bio'),
             'images'=>basename($image),
         ]);
-
         return redirect('/top');
+    }
+
     }
 
 

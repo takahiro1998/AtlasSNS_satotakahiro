@@ -25,7 +25,13 @@
 <div class="user-post">
   <div class="post">
     <article class="icon">
-      <figure><img src="{{ asset('storage/images/'.$list->user->images)}}" alt=""></figure>
+      <figure>
+        @if(Auth::user()->images=="icon1.png")
+        <img src="{{ asset('images/icon1.png') }}" alt="">
+        @else
+        <img src="{{ asset('storage/images/'.$list->user->images)}}" alt="">
+        @endif
+      </figure>
     </article>
     <div class="follow-post">
       <p class="follow-post1">{{ $list->user->username }}</p>
