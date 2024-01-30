@@ -417,6 +417,10 @@ img {
 
 /* プロフィール */
 
+#alert {
+    margin-top: 10px;
+}
+
 .profile {
     width: 1020px;
 }

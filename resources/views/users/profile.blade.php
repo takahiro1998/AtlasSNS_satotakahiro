@@ -9,6 +9,15 @@
       {!! Form::open(['url'=>'/profile/update','enctype' => 'multipart/form-data','files' => true]) !!}
       @csrf
       {!! Form::hidden('id',Auth::user()->id) !!}
+       @if ($errors->any())
+        <div id="alert">
+          <ol>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ol>
+        </div>
+        @endif
       <div class="information">
           <article class="icon">
             <figure>
@@ -49,15 +58,6 @@
             </div>
           </div>
       </div>
-      @if ($errors->any())
-<div id="alert">
-  <ol>
-    @foreach ($errors->all() as $error)
-     <li>{{ $error }}</li>
-    @endforeach
-  </ol>
-</div>
-@endif
      {{ Form::token() }}
      {!! Form::close() !!}
     </div>
